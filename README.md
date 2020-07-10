@@ -7,7 +7,7 @@
 [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/shubhamtatvamasi/mysql)](https://hub.docker.com/r/shubhamtatvamasi/mysql)
 
 deploy mysql pod
-```
+```bash
 kubectl run mysql --image=mysql --restart=Never \
   --port=3306 --expose --env=MYSQL_ROOT_PASSWORD=password
 
@@ -19,7 +19,7 @@ kubectl patch svc mysql \
 ```
 
 connect to mysql
-```
+```bash
 NODE_NAME=$(kubectl get pod mysql -o jsonpath='{.spec.nodeName}')
 
 NODE_IP=$(kubectl get nodes ${NODE_NAME} \
@@ -28,6 +28,10 @@ NODE_IP=$(kubectl get nodes ${NODE_NAME} \
 mysql --user=root --password=password --port=30306 --host=${NODE_IP}
 ```
 
+delete deployment
+```bash
+kubectl delete pod/mysql service/mysql
+```
 
 ---
 
