@@ -26,6 +26,8 @@ NODE_IP=$(kubectl get nodes ${NODE_NAME} \
   -o jsonpath='{.status.addresses[?(@.type=="ExternalIP")].address}')
 
 mysql --user=root --password=password --port=30306 --host=${NODE_IP}
+
+mysql --user=root --password=password --port=30306 --host=k8s.shubhamtatvamasi.com
 ```
 
 delete deployment
