@@ -7,6 +7,21 @@
 [![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/shubhamtatvamasi/mysql/latest)](https://hub.docker.com/r/shubhamtatvamasi/mysql)
 [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/shubhamtatvamasi/mysql)](https://hub.docker.com/r/shubhamtatvamasi/mysql)
 
+
+
+Deploy MySQL database:
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+
+
+helm upgrade -i mysql bitnami/mysql \
+  --set primary.service.type=LoadBalancer \
+  --set auth.rootPassword=password \
+  --set auth.database=my_database
+```
+---
+
 deploy mysql pod
 ```bash
 kubectl run mysql --image=mysql --restart=Never \
