@@ -8,8 +8,8 @@ services:
       - "3306:3306"
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: eabsentee
-      MYSQL_USER: eabsentee
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
